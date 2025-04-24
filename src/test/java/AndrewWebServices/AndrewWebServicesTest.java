@@ -4,7 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class AndrewWebServicesTest {
@@ -54,11 +58,18 @@ public class AndrewWebServicesTest {
     public void testSendEmail() {
         // How should we test sendEmail() when it doesn't have a return value?
         // Hint: is there something from Mockito that seems useful here?
+        //verify function??
+        String test = "anka@gmail.com";
+        andrewWebService.sendPromoEmail(test);
+
+        verify(promoService, times(1)).mailTo(test);
     }
 
     @Test
     public void testNoSendEmail() {
         // How should we test that no email has been sent in certain situations (like right after logging in)?
         // Hint: is there something from Mockito that seems useful here?
+        //yes
+        verify(promoService, never()).mailTo(anyString());
     }
 }

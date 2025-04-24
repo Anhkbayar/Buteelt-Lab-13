@@ -29,6 +29,7 @@ public class PromoService {
         properties.put("mail.smtp.auth", "true");
 
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication("receiver@gmail.com", "*******");
             }
