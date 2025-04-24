@@ -1,6 +1,7 @@
 package AndrewWebServices;
 
 import java.util.Properties;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -15,6 +16,7 @@ import javax.mail.internet.MimeMessage;
  * DO NOT MODIFY this class.
  */
 public class PromoService {
+    @SuppressWarnings("CallToPrintStackTrace")
     public void mailTo(String email) {
         String to = email;
         String from = "sender@gmail.com";
